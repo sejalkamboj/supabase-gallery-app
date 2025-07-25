@@ -6,28 +6,28 @@ A responsive image gallery web app built with **React**, **Vite**, **Tailwind CS
 
 ## ✨ Features
 
-- 🔐 User Authentication (Sign up & Sign in with Supabase Auth)
-- 📤 Upload images and view them in real time
-- 📁 Store and retrieve images from Supabase storage bucket
-- 🖼️ Personalized gallery view for each authenticated user
-- ⚡ Fast development with Vite and Hot Module Replacement
+-  User Authentication (Sign up & Sign in with Supabase Auth)
+-  Upload images and view them in real time
+-  Store and retrieve images from Supabase storage bucket
+-  Personalized gallery view for each authenticated user
+-  Fast development with Vite and Hot Module Replacement
 
 ---
 
 ## 📸 Screenshots
 
 
-**Home Page**  
-![Home Page](./screenshots/home.png)
+**Signup Page**  
+![Signup Page](https://github.com/sejalkamboj/supabase-gallery-app/blob/main/pixdrop/src/assets/screenshots/signup.png)
 
 **Login Page**  
-![Login Page](./screenshots/login.png)
+![Login Page](https://github.com/sejalkamboj/supabase-gallery-app/blob/main/pixdrop/src/assets/screenshots/login.png)
 
 **Gallery Page (User Logged In)**  
-![Gallery](./screenshots/gallery.png)
+![Gallery](https://github.com/sejalkamboj/supabase-gallery-app/blob/main/pixdrop/src/assets/screenshots/gallery.png)
 
-**Upload Feature**  
-![Upload](./screenshots/upload.png)
+**Storage interface in Supabase**  
+![Upload](https://github.com/sejalkamboj/supabase-gallery-app/blob/main/pixdrop/src/assets/screenshots/supabase_interface.jpg)
 
 ---
 
@@ -49,6 +49,7 @@ Create a `.env` file in the root directory with the following variables:
 ```env
 VITE_SUPABASE_URL=your_supabase_project_url
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
 
 ---
 
@@ -66,6 +67,7 @@ npm install
 
 # Start the development server
 npm run dev
+```
 
 ---
 
@@ -80,7 +82,8 @@ Add RLS (Row Level Security) policies for inserting and selecting files:
 
 ---
 
-##🎯 RLS Policies for pictures bucket:
+
+## 🎯 RLS Policies for pictures bucket:
 
 -- SELECT policy
 (bucket_id = 'pictures') AND storage.foldername(name)[1] = auth.uid()
@@ -89,44 +92,5 @@ Add RLS (Row Level Security) policies for inserting and selecting files:
 (bucket_id = 'pictures') AND storage.foldername(name)[1] = auth.uid()
 
 ---
-
-## 🚀 Quick Start
-
-1. **Set up environment variables**  
-   Create `.env` in the project root:
-   ```env
-   VITE_SUPABASE_URL=your_project_url
-   VITE_SUPABASE_ANON_KEY=your_anon_key
-   ```
-
-2. **Install & run**  
-   ```bash
-   git clone https://github.com/your-username/gallery-app.git
-   cd gallery-app
-   npm install
-   npm run dev
-   ```
-
-## 🛠 Tech Stack
-- **Frontend**: React + Vite + Tailwind  
-- **Backend**: Supabase (Auth + Storage)  
-
-## 🔐 Supabase Setup
-1. Create a `pictures` storage bucket  
-2. Enable Email/Password auth  
-3. Add these RLS policies:
-   ```sql
-   -- Allow users to access their own files
-   (bucket_id = 'pictures') AND (storage.foldername(name)[1] = auth.uid()::text)
-   ```
-
-## 🧭 Project Structure
-```
-src/
-├── components/      # Reusable UI
-├── pages/           # Main views
-├── supabase/        # Client config
-└── App.jsx          # Root component
-```
 
 *Pro tip:* Replace `your_project_url` and `your_anon_key` with your actual Supabase credentials from Project Settings → API.
