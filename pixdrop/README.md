@@ -16,7 +16,6 @@ A responsive image gallery web app built with **React**, **Vite**, **Tailwind CS
 
 ## 📸 Screenshots
 
-> Replace the paths with actual screenshot file names in the `screenshots/` folder
 
 **Home Page**  
 ![Home Page](./screenshots/home.png)
